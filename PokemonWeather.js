@@ -4,11 +4,12 @@ import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { useWeather } from './context/WeatherContext';
-import { getWeatherData } from './api/weatherAPI';
+import { usePokemonWeather } from './context/PokemonWeatherContext';
+import { getWeatherData, extractWeatherConditions } from './api/weatherAPI';
+import { weatherConditionsToPokeTypes } from './api/pokemonAPI';
 
 export default function PokemonWeather() {
-  const { weatherData, initializeWeatherData } = useWeather();
+  const { weatherData, initializeWeatherData } = usePokemonWeather();
 
   useEffect(() => {
     (async () => {
@@ -25,10 +26,6 @@ export default function PokemonWeather() {
     })()
       .catch(error => console.error(error));
   }, []);
-
-  useEffect(() => {
-    console.debug(weatherData);
-  }, [weatherData]);
 
   return (
     <View style={styles.container}>

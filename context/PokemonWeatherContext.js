@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import { formatWeatherData } from '../api/weatherAPI';
 
-const WeatherContext = React.createContext({
+const PokemonWeatherContext = React.createContext({
   weatherData: {},
   initializeWeatherData: () => { },
 });
 
-export const WeatherProvider = ({ children }) => {
+export const PokemonWeatherProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState({});
 
   const initializeWeatherData = (data) => {
     const formattedData = formatWeatherData(data);
+    console.debug(formattedData);
     setWeatherData(formattedData);
   }
 
   return (
-    <WeatherContext.Provider
+    <PokemonWeatherContext.Provider
       value={{
         weatherData,
         initializeWeatherData,
       }}
     >
       {children}
-    </WeatherContext.Provider>
+    </PokemonWeatherContext.Provider>
   );
 }
 
-export function useWeather() {
-  const context = React.useContext(WeatherContext);
+export function usePokemonWeather() {
+  const context = React.useContext(PokemonWeatherContext);
   if (!context) {
-    throw new Error('useWeather must be called from a descendent of WeatherProvider');
+    throw new Error('usePokemonWeather must be called from a descendent of PokemonWeatherProvider');
   }
   return context;
 }
