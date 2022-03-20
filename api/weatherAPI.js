@@ -17,7 +17,7 @@ export function getWeatherData({ lat, long }) {
 export function formatWeatherData(data) {
   if (data !== undefined) {
 
-    if (data.current == undefined || data.daily == undefined) {
+    if (data.current === undefined || data.daily === undefined) {
       console.debug(data);
       console.error('Invalid API data. Data must include "current" and "daily" information.');
       return {};
@@ -75,7 +75,7 @@ function extractDailyWeatherInfo(rawData) {
     const { main } = weather[0];
 
     return {
-      dt: dayNames[dayIndex],
+      day: dayNames[dayIndex],
       temp,
       descrip: main,
       max,
