@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   container: bgColor => ({
     flex: 1,
     backgroundColor: bgColor,
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
   }),
 });
