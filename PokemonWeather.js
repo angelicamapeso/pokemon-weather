@@ -5,11 +5,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { usePokemonWeather } from './context/PokemonWeatherContext';
-import { getWeatherData, extractWeatherConditions } from './api/weatherAPI';
-import { weatherConditionsToPokeTypes } from './api/pokemonAPI';
 
 export default function PokemonWeather() {
-  const { weatherData, initializeWeatherData } = usePokemonWeather();
+  const { initializePokemonWeatherData } = usePokemonWeather();
 
   useEffect(() => {
     (async () => {
@@ -21,8 +19,7 @@ export default function PokemonWeather() {
       }
 
       const { coords: { latitude, longitude } } = await Location.getCurrentPositionAsync();
-      const data = await getWeatherData({ lat: latitude, long: longitude });
-      initializeWeatherData(data);
+      await initializePokemonWeatherData({ lat: latitude, long: longitude });
     })()
       .catch(error => console.error(error));
   }, []);
