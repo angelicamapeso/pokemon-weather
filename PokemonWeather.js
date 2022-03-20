@@ -9,6 +9,7 @@ import { CLEAR, WEATHER_TO_COLORS } from './constants/weatherConstants';
 
 import CurrentWeather from './components/CurrentWeather.js';
 import CurrentPokemon from './components/CurrentPokemon.js';
+import DailyWeather from './components/DailyWeather';
 
 export default function PokemonWeather() {
   const { pokemonWeatherData, initializePokemonWeatherData } = usePokemonWeather();
@@ -46,6 +47,7 @@ export default function PokemonWeather() {
     <View style={styles.container(bgColor)}>
       <CurrentWeather />
       <CurrentPokemon />
+      <DailyWeather />
       <StatusBar style="auto" />
     </View>
   );
