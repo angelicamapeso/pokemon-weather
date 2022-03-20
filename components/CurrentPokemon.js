@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
 
   stats: {
     flex: 0.5,
-    padding: 25,
+    padding: 15,
   },
 
   statDescrip: {
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   typeBox: {
     width: '100%',
     position: 'absolute',
-    bottom: -20,
+    bottom: -28,
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
