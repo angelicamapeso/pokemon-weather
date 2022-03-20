@@ -92,6 +92,7 @@ export const PokemonWeatherProvider = ({ children }) => {
   return (
     <PokemonWeatherContext.Provider
       value={{
+        pokemon,
         pokemonWeatherData,
         initializePokemonWeatherData,
       }}
