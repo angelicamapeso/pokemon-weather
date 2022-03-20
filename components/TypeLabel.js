@@ -19,7 +19,7 @@ export default function TypeLabel({ style, type }) {
     } else {
       setTypeColor(def);
     }
-  }, [])
+  }, [type])
 
   return (
     <View style={[styles.container(typeColor), style]}>
