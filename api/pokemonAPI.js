@@ -131,6 +131,7 @@ export function formatPokeData(rawPokeData) {
       other: { 'official-artwork': { front_default: img } },
     },
     stats,
+    types,
   }) => {
     const statNames = ['hp', 'attack', 'defense'];
     const statData = statNames.reduce((prev, current) => {
@@ -146,10 +147,16 @@ export function formatPokeData(rawPokeData) {
       return prevCopy;
     }, {});
 
+    const typeNames = types.reduce((prev, { type: { name } }) => {
+      return [...prev, name]
+    }, []);
+
+
     return {
       name,
       img,
       ...statData,
+      types: typeNames,
     };
   });
 };
