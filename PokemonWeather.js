@@ -7,6 +7,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { usePokemonWeather } from './context/PokemonWeatherContext';
 import { CLEAR, WEATHER_TO_COLORS } from './constants/weatherConstants';
 
+import CurrentWeather from './components/CurrentWeather.js';
+
 export default function PokemonWeather() {
   const { pokemonWeatherData, initializePokemonWeatherData } = usePokemonWeather();
   const [bgColor, setBgColor] = useState('');
@@ -41,7 +43,7 @@ export default function PokemonWeather() {
 
   return (
     <View style={styles.container(bgColor)}>
-      <Text>Open up App.js to start working on your app!!</Text>
+      <CurrentWeather />
       <StatusBar style="auto" />
     </View>
   );
