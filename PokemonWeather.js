@@ -5,9 +5,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { usePokemonWeather } from './context/PokemonWeatherContext';
+import { CLEAR, WEATHER_TO_COLORS } from './constants/weatherConstants';
 
 export default function PokemonWeather() {
-  const { initializePokemonWeatherData } = usePokemonWeather();
+  const { pokemonWeatherData, initializePokemonWeatherData } = usePokemonWeather();
+  const [bgColor, setBgColor] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -24,8 +26,21 @@ export default function PokemonWeather() {
       .catch(error => console.error(error));
   }, []);
 
+  useEffect(() => {
+    if (pokemonWeatherData?.current?.descrip) {
+      if (WEATHER_TO_COLORS[pokemonWeatherData.current.descrip]) {
+        setBgColor(WEATHER_TO_COLORS[pokemonWeatherData.current.descrip].mid);
+        return;
+      } else {
+        console.warn('Unknown Weather Description: ' + pokemonWeatherData.current.descrip);
+      }
+    }
+
+    setBgColor(WEATHER_TO_COLORS[CLEAR].mid);
+  }, [pokemonWeatherData]);
+
   return (
-    <View style={styles.container}>
+    <View style={styles.container(bgColor)}>
       <Text>Open up App.js to start working on your app!!</Text>
       <StatusBar style="auto" />
     </View>
@@ -33,10 +48,10 @@ export default function PokemonWeather() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: bgColor => ({
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: bgColor,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }),
 });
