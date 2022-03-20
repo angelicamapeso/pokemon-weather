@@ -116,8 +116,9 @@ export default function CurrentPokemon() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(255, 255, 255, 0.25)',
-    flex: 0.3,
+    flex: 0.4,
     margin: 22,
+    marginBottom: 50,
     borderRadius: 20,
   },
 

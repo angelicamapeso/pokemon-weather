@@ -49,10 +49,12 @@ export default function CurrentWeather() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.3,
+    flex: 0.35,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 50,
+    marginBottom: 15,
   },
   textBox: {
     padding: 30,
