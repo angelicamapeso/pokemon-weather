@@ -83,7 +83,6 @@ export const PokemonWeatherProvider = ({ children }) => {
     const currentPokemon = { ...pokemon };
     formattedPokeData.forEach(data => {
       const fData = { ...data };
-      delete fData.name;
       currentPokemon[data.name] = fData;
     });
     setPokemon(currentPokemon);
