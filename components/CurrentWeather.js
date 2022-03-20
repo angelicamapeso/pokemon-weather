@@ -49,7 +49,7 @@ export default function CurrentWeather() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.3,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
