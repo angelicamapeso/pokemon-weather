@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginBottom: 5,
     width: 100,
-    padding: 5,
+    paddingVertical: 5,
   }),
 
   dayName: {
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     transform: [{ scale: 1.5 }],
     position: 'relative',
-    top: 10,
+    top: 15,
   },
 
   pokeName: (borderColor) => ({
