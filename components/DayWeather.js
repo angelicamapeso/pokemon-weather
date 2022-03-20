@@ -56,16 +56,16 @@ export default function DayWeather({ dayData }) {
         <Text style={[styles.txtColor(colorSet.dark ? colorSet.dark : 'black'), styles.descrip]}>
           {dayData.descrip ? dayData.descrip : '--'}
         </Text>
-        {
-          dayPokemon.img ?
-            <View style={styles.imgContainer}>
+        <View style={styles.imgContainer}>
+          {
+            dayPokemon.img ?
               <Image
                 style={styles.img}
                 source={{ uri: dayPokemon.img }}
               />
-            </View>
-            : null
-        }
+              : null
+          }
+        </View>
         {
           dayPokemon.name ?
             <Text style={[styles.txtColor(colorSet.dark), styles.pokeName(colorSet.mid)]}>
