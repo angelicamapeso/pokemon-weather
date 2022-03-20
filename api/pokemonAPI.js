@@ -1,4 +1,9 @@
-import { NORMAL, WEATHER_TO_TYPES } from "../constants/pokemonConstants";
+import {
+  NORMAL,
+  WEATHER_TO_TYPES,
+  STAT_ARRAY,
+  STAT_SHORT,
+} from "../constants/pokemonConstants";
 
 export function addPokemonTypes(formattedWeatherData) {
   const result = {
@@ -133,15 +138,23 @@ export function formatPokeData(rawPokeData) {
     stats,
     types,
   }) => {
-    const statNames = ['hp', 'attack', 'defense'];
-    const statData = statNames.reduce((prev, current) => {
+    const statData = STAT_ARRAY.reduce((prev, current) => {
       const prevCopy = { ...prev };
       const statsObj = stats.find(({ stat: { name } }) => name === current);
 
       if (!statsObj?.base_stat) {
         prevCopy[current] = null;
+      } else if (!STAT_SHORT[current]) {
+        console.warn('Short form of stat not found: ' + current);
+        prevCopy[current] = {
+          val: statsObj.base_stat,
+          shrt: 'UNK',
+        }
       } else {
-        prevCopy[current] = statsObj.base_stat;
+        prevCopy[current] = {
+          val: statsObj.base_stat,
+          shrt: STAT_SHORT[current],
+        };
       }
 
       return prevCopy;

@@ -76,3 +76,16 @@ export const TYPE_TO_COLORS = {
   [NORMAL]: '#A8A8A8',
   [ROCK]: '#B8A038',
 };
+
+// Pokemon Stats
+export const HP = 'hp';
+export const ATTACK = 'attack';
+export const DEFENSE = 'defense';
+
+export const STAT_ARRAY = [HP, ATTACK, DEFENSE];
+
+export const STAT_SHORT = {
+  [HP]: 'HP',
+  [ATTACK]: 'ATK',
+  [DEFENSE]: 'DEF',
+};
