@@ -1,6 +1,6 @@
 # Pokemon Weather App
 
-<img style="float: right; width: 30%; margin-left: 50px;" src="./img/readme_preview.PNG">
+<img align="right" style="width: 30%; margin-left: 50px;" src="./img/readme_preview.PNG">
 
 This app was created with [React Native](https://reactnative.dev/) using [Expo](https://expo.dev/).
 
